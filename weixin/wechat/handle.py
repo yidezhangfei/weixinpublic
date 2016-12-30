@@ -6,6 +6,7 @@ from wechat_sdk.messages import *
 class WeChat:
     def __init__(self, wechat_basic):
         self.wechat_ = wechat_basic
+        self.message = self.wechat_.message
 
     def parse_data(self, data):
         self.wechat_.parse_data(data)
@@ -15,8 +16,8 @@ class WeChat:
 
 def handle(wechat_basic, post_data):
     wechat_obj = WeChat(wechat_basic)
-    if isinstance(wechat.message, TextMessage):
-        content = wechat.message.content
+    if isinstance(wechat_obj.message, TextMessage):
+        content = wechat_obj.message.content
         if wechat_obj != None:
             wechat_obj.auto_reply(content)
     return
