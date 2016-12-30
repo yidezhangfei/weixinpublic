@@ -10,6 +10,7 @@ class WeChat:
 
     def parse_data(self, data):
         self.wechat_.parse_data(data)
+        self.message = self.wechat_.message
 
     def auto_reply(self, text):
         self.wechat_.response_text(text, escape=False)
