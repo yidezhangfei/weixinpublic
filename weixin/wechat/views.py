@@ -54,5 +54,5 @@ def response(request):
 #        response_str = content
 #        logger.debug("response_str:%s", response_str)
         xml_str = smart_str(request.body)
-        handle.handle(wechat_base, xml_str)
-    return
+        response_str = handle.handle(wechat_base, xml_str)
+    return HttpResponse(response_str)

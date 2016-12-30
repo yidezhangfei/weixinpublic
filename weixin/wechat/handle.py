@@ -13,7 +13,7 @@ class WeChat:
 
     def auto_reply(self, text):
         response_str = self.wechat_.response_text(text, escape=False)
-        HttpResponse(response_str)
+        return response_str
 
 def handle(wechat_basic, post_data):
     wechat_obj = WeChat(wechat_basic)
@@ -21,5 +21,5 @@ def handle(wechat_basic, post_data):
     if isinstance(wechat_obj.message, TextMessage):
         content = wechat_obj.message.content
         if wechat_obj != None:
-            wechat_obj.auto_reply(content)
+            return wechat_obj.auto_reply(content)
     return
