@@ -12,7 +12,8 @@ class WeChat:
         self.message = self.wechat_.message
 
     def auto_reply(self, text):
-        self.wechat_.response_text(text, escape=False)
+        response_str = self.wechat_.response_text(text, escape=False)
+        HttpResponse(response_str)
 
 def handle(wechat_basic, post_data):
     wechat_obj = WeChat(wechat_basic)
