@@ -16,6 +16,7 @@ class WeChat:
 
 def handle(wechat_basic, post_data):
     wechat_obj = WeChat(wechat_basic)
+    wechat_obj.parse_data(post_data)
     if isinstance(wechat_obj.message, TextMessage):
         content = wechat_obj.message.content
         if wechat_obj != None:
