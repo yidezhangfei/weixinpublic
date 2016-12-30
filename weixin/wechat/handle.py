@@ -6,7 +6,6 @@ from wechat_sdk.messages import *
 class WeChat:
     def __init__(self, wechat_basic):
         self.wechat_ = wechat_basic
-        self.message = self.wechat_.message
 
     def parse_data(self, data):
         self.wechat_.parse_data(data)
