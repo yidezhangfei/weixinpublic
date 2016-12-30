@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from wechat_sdk import WechatBasic
 from wechat_sdk.messages import *
 
-class WeChat(wechat_basic):
+class WeChat:
     def __init__(self, wechat_basic):
         self.wechat_ = wechat_basic
 
