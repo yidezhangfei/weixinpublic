@@ -10,6 +10,7 @@ import hashlib
 
 from wechat_sdk import WechatConf
 from wechat_sdk import WechatBasic
+import handle
 
 import logging
 
@@ -44,12 +45,14 @@ def response(request):
         else:
             return HttpResponse("error")
     else:
-        logger = logging.getLogger('server')
+#        logger = logging.getLogger('server')
+#        xml_str = smart_str(request.body)
+#        logger.debug("xml_str:%s", xml_str)
+#        request_xml = etree.fromstring(xml_str)
+#        logger.debug("request_xml:%s", request_xml)
+#        content = request_xml.find("Content").text
+#        response_str = content
+#        logger.debug("response_str:%s", response_str)
         xml_str = smart_str(request.body)
-        logger.debug("xml_str:%s", xml_str)
-        request_xml = etree.fromstring(xml_str)
-        logger.debug("request_xml:%s", request_xml)
-        content = request_xml.find("Content").text
-        response_str = content
-        logger.debug("response_str:%s", response_str)
-    return HttpResponse(response_str)
+        handle.handle(wechat_base, xml_str)
+    return
